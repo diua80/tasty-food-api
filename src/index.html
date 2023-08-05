@@ -5,10 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./js/recepies.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <form class="form-filters">
+      <div>
+        <p>Search</p>
+        <input
+          class="search-filter-input"
+          type="text"
+          id="filter-search-input"
+          placeholder="Enter text"
+        />
+      </div>
+    <div>
+      <p>Time</p>
+      <select name = "cooking-time">
+        <option value = "10">10 min</option>
+        <option value = "20">20 min</option>
+        <option value = "30">30 min</option>
+        <option value = "40">40 min</option>
+    </div>
+      <div>
+        <p>Region</p>
+      <select name = "region">
+        <option value = "French">French</option>
+        <option value = "Spanish">Spanish</option>
+        <option value = "Italian">Italian</option>
+        <option value = "English">English</option>
+        <option value = "Norvegian">Norvegian</option>
+        <option value = "Ukrainian">Ukrainian</option>
+      </div>
+      <div><p>Product</p>
+      <select name = "region">
+        <option value = "Cabbage">Cabbage</option>
+        <option value = "Cucumber">Cucumber</option>
+        <option value = "Tomato">Tomato</option>
+        <option value = "Corn">Corn</option>
+        <option value = "Radish">Radish</option>
+        <option value = "Parsley">Parsley</option>
+      </div>
+    </form>
+    <form class="form-search" id="form">
+
+      <button class="search-button" type="submit">All categories</button>
+    </form>
+    
+    <ul class="categories-list" id="categories-list"></ul>
+    <ul id="recepies-list"></ul>
+
+    <div class="block-raiting">
+     <span class="rating" id="rating-value"></span>    
+     <div class="rating-container">
+      <svg class="star" width="18" height="18" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" data-rating="1">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>
+
+      <svg class="star" width="18" height="18" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" data-rating="2">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>
+
+      <svg class="star" width="18" height="18" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" data-rating="3">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>
+
+      <svg class="star" width="18" height="18" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" data-rating="4">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>
+      
+      <svg class="star" width="18" height="18" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" data-rating="5">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>      
+     </div>
+     <button class="recipe-btn" type="button">See recipe</button>
+    </div>
+    
   </body>
 </html>
